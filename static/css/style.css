@@ -1,0 +1,623 @@
+/* ═══════════════════════════════════════════════════════════════════
+   NutriBot — Main Stylesheet
+   Light/Dark theme, animations, chat UI, responsive design
+═══════════════════════════════════════════════════════════════════ */
+
+/* ── CSS Custom Properties ─────────────────────────────────────── */
+:root {
+  --bg-primary:      #ffffff;
+  --bg-secondary:    #f7f8fa;
+  --bg-card:         #ffffff;
+  --bg-sidebar:      #f0f4f8;
+  --border-color:    #e5e7eb;
+  --text-primary:    #1f2328;
+  --text-secondary:  #57606a;
+  --text-muted:      #8b949e;
+  --accent:          #2563eb;
+  --accent-hover:    #1d4ed8;
+  --accent-light:    #dbeafe;
+  --success:         #16a34a;
+  --success-light:   #dcfce7;
+  --warning:         #d97706;
+  --warning-light:   #fef3c7;
+  --danger:          #dc2626;
+  --danger-light:    #fee2e2;
+  --bot-bubble-bg:   #f0f4f8;
+  --user-bubble-bg:  #2563eb;
+  --user-bubble-text:#ffffff;
+  --nav-bg:          #ffffff;
+  --nav-border:      #e5e7eb;
+  --shadow-sm:       0 1px 3px rgba(0,0,0,.08);
+  --shadow-md:       0 4px 12px rgba(0,0,0,.10);
+  --shadow-lg:       0 8px 24px rgba(0,0,0,.12);
+  --radius-sm:       8px;
+  --radius-md:       12px;
+  --radius-lg:       16px;
+  --radius-xl:       20px;
+  --font-sans:       -apple-system, "Segoe UI", system-ui, sans-serif;
+  --transition:      0.22s ease;
+}
+
+[data-theme="dark"] {
+  --bg-primary:      #0d1117;
+  --bg-secondary:    #161b22;
+  --bg-card:         #1c2128;
+  --bg-sidebar:      #161b22;
+  --border-color:    #30363d;
+  --text-primary:    #e6edf3;
+  --text-secondary:  #8b949e;
+  --text-muted:      #6e7681;
+  --accent:          #58a6ff;
+  --accent-hover:    #79b8ff;
+  --accent-light:    #1f3a5f;
+  --success:         #3fb950;
+  --success-light:   #1a3a22;
+  --warning:         #e3b341;
+  --warning-light:   #3b2c08;
+  --danger:          #f85149;
+  --danger-light:    #3c1414;
+  --bot-bubble-bg:   #21262d;
+  --user-bubble-bg:  #1f3a5f;
+  --user-bubble-text:#e6edf3;
+  --nav-bg:          #161b22;
+  --nav-border:      #30363d;
+  --shadow-sm:       0 1px 3px rgba(0,0,0,.3);
+  --shadow-md:       0 4px 12px rgba(0,0,0,.4);
+  --shadow-lg:       0 8px 24px rgba(0,0,0,.5);
+}
+
+/* ── Reset & Base ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family:     var(--font-sans);
+  background:      var(--bg-primary);
+  color:           var(--text-primary);
+  font-size:       15px;
+  line-height:     1.6;
+  transition:      background var(--transition), color var(--transition);
+}
+
+/* ── Navigation ────────────────────────────────────────────────── */
+.nutribot-nav {
+  background:    var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+  box-shadow:    var(--shadow-sm);
+  transition:    background var(--transition);
+  padding:       0.4rem 0;
+}
+
+.brand-icon   { font-size: 1.5rem; }
+.brand-name   { font-weight: 700; font-size: 1.15rem; color: var(--accent); }
+.brand-badge  {
+  background:    var(--accent);
+  color:         #fff;
+  font-size:     0.6rem;
+  font-weight:   700;
+  padding:       1px 6px;
+  border-radius: 4px;
+  letter-spacing:.5px;
+  vertical-align:middle;
+}
+
+.nutribot-nav .nav-link {
+  color:         var(--text-secondary);
+  font-weight:   500;
+  border-radius: var(--radius-sm);
+  padding:       0.35rem 0.75rem;
+  transition:    all var(--transition);
+}
+.nutribot-nav .nav-link:hover,
+.nutribot-nav .nav-link.active {
+  color:      var(--accent);
+  background: var(--accent-light);
+}
+
+.profile-btn {
+  background:    var(--bg-secondary);
+  border:        1px solid var(--border-color);
+  color:         var(--text-primary);
+  border-radius: var(--radius-sm);
+  transition:    all var(--transition);
+}
+.profile-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+.theme-toggle {
+  background:    var(--bg-secondary);
+  border:        1px solid var(--border-color);
+  color:         var(--text-secondary);
+  width:         36px;
+  height:        36px;
+  border-radius: 50%;
+  display:       flex;
+  align-items:   center;
+  justify-content: center;
+  transition:    all var(--transition);
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ── Hero Banner ───────────────────────────────────────────────── */
+.hero-banner {
+  background:    linear-gradient(135deg, var(--accent) 0%, #7c3aed 100%);
+  border-radius: var(--radius-lg);
+  padding:       2rem 2rem 1.75rem;
+  margin:        1.25rem 0 0;
+  color:         #fff;
+  position:      relative;
+  overflow:      hidden;
+}
+.hero-banner::before {
+  content:    "";
+  position:   absolute;
+  inset:      0;
+  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M0 0h80v80H0z'/%3E%3Ccircle cx='40' cy='40' r='20'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.hero-icon  { font-size: 2.5rem; margin-bottom: .5rem; }
+.hero-title { font-size: 1.7rem; font-weight: 800; margin: 0 0 .4rem; }
+.hero-subtitle { opacity: .88; max-width: 540px; margin-bottom: 1rem; }
+
+.hero-pills { display: flex; flex-wrap: wrap; gap: .5rem; }
+.pill {
+  background:    rgba(255,255,255,.18);
+  border:        1px solid rgba(255,255,255,.35);
+  color:         #fff;
+  padding:       .3rem .75rem;
+  border-radius: 20px;
+  font-size:     .8rem;
+  cursor:        pointer;
+  transition:    all var(--transition);
+  white-space:   nowrap;
+}
+.pill:hover { background: rgba(255,255,255,.35); }
+
+/* ── Chat Card ─────────────────────────────────────────────────── */
+.chat-card {
+  background:    var(--bg-card);
+  border:        1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow:    var(--shadow-md);
+  display:       flex;
+  flex-direction:column;
+  height:        520px;
+  overflow:      hidden;
+  transition:    background var(--transition), border var(--transition);
+}
+
+.chat-header {
+  padding:         .9rem 1.1rem;
+  border-bottom:   1px solid var(--border-color);
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  background:      var(--bg-secondary);
+}
+.chat-avatar { font-size: 1.8rem; line-height: 1; }
+.chat-status {
+  font-size: .75rem;
+  color:     var(--success);
+  display:   flex;
+  align-items: center;
+  gap: 4px;
+}
+.status-dot {
+  width:  8px;
+  height: 8px;
+  background:    var(--success);
+  border-radius: 50%;
+  animation:     pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: .4; }
+}
+
+.chat-body {
+  flex:       1;
+  overflow-y: auto;
+  padding:    1rem;
+  display:    flex;
+  flex-direction: column;
+  gap:        .75rem;
+  scroll-behavior: smooth;
+}
+.chat-body::-webkit-scrollbar { width: 5px; }
+.chat-body::-webkit-scrollbar-track { background: transparent; }
+.chat-body::-webkit-scrollbar-thumb {
+  background:    var(--border-color);
+  border-radius: 10px;
+}
+
+/* ── Messages ──────────────────────────────────────────────────── */
+.message { display: flex; gap: .65rem; align-items: flex-start; }
+.message-avatar { font-size: 1.3rem; flex-shrink: 0; margin-top: .15rem; }
+
+.message-bubble {
+  max-width:     78%;
+  padding:       .65rem .9rem;
+  border-radius: var(--radius-md);
+  font-size:     .9rem;
+  line-height:   1.55;
+  position:      relative;
+}
+.message-bubble p:last-child,
+.message-bubble ul:last-child { margin-bottom: 0; }
+.message-bubble ul { padding-left: 1.2rem; }
+
+.bot-message .message-bubble {
+  background:    var(--bot-bubble-bg);
+  color:         var(--text-primary);
+  border-top-left-radius: 4px;
+}
+
+.user-message {
+  flex-direction: row-reverse;
+}
+.user-message .message-bubble {
+  background:    var(--user-bubble-bg);
+  color:         var(--user-bubble-text);
+  border-top-right-radius: 4px;
+}
+
+.message-time {
+  font-size: .68rem;
+  color:     var(--text-muted);
+  margin-top: .3rem;
+}
+.user-message .message-time { text-align: right; }
+
+/* ── Typing dots ───────────────────────────────────────────────── */
+.typing-bubble {
+  display:    flex;
+  align-items:center;
+  gap:        5px;
+  padding:    .65rem 1rem;
+  min-width:  64px;
+}
+.dot {
+  width:         8px;
+  height:        8px;
+  background:    var(--text-muted);
+  border-radius: 50%;
+  animation:     bounce 1.2s infinite;
+}
+.dot:nth-child(2) { animation-delay: .2s; }
+.dot:nth-child(3) { animation-delay: .4s; }
+@keyframes bounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30%           { transform: translateY(-6px); }
+}
+
+/* ── Chat Footer ───────────────────────────────────────────────── */
+.chat-footer { padding: .75rem 1rem; border-top: 1px solid var(--border-color); }
+.chat-input-group { gap: .5rem; }
+.chat-input {
+  border-radius: var(--radius-md) !important;
+  border:        1px solid var(--border-color);
+  background:    var(--bg-secondary);
+  color:         var(--text-primary);
+  font-size:     .9rem;
+  resize:        none;
+  padding:       .6rem .85rem;
+  transition:    all var(--transition);
+  max-height:    120px;
+}
+.chat-input:focus {
+  border-color: var(--accent);
+  box-shadow:   0 0 0 3px var(--accent-light);
+  background:   var(--bg-card);
+}
+.send-btn {
+  background:    var(--accent);
+  color:         #fff;
+  border:        none;
+  border-radius: var(--radius-md) !important;
+  width:         44px;
+  flex-shrink:   0;
+  display:       flex;
+  align-items:   center;
+  justify-content: center;
+  transition:    all var(--transition);
+}
+.send-btn:hover  { background: var(--accent-hover); transform: scale(1.05); }
+.send-btn:active { transform: scale(.97); }
+.input-hints     { color: var(--text-muted); font-size: .72rem; }
+
+kbd {
+  background:    var(--bg-secondary);
+  border:        1px solid var(--border-color);
+  border-radius: 4px;
+  padding:       1px 5px;
+  font-size:     .7rem;
+  color:         var(--text-secondary);
+}
+
+/* ── Sidebar Cards ─────────────────────────────────────────────── */
+.sidebar-card {
+  background:    var(--bg-card);
+  border:        1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow:    var(--shadow-sm);
+  overflow:      hidden;
+  transition:    background var(--transition), border var(--transition);
+}
+.sidebar-card-header {
+  padding:       .75rem 1rem;
+  font-weight:   600;
+  font-size:     .9rem;
+  background:    var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  display:       flex;
+  align-items:   center;
+  color:         var(--text-primary);
+}
+.sidebar-card-body { padding: .85rem 1rem; }
+
+.badge-live {
+  background:    var(--success);
+  color:         #fff;
+  font-size:     .6rem;
+  padding:       2px 7px;
+  border-radius: 10px;
+  font-weight:   600;
+  letter-spacing:.3px;
+  animation:     pulse 2.5s infinite;
+}
+
+.stat-row {
+  display:        flex;
+  justify-content:space-between;
+  align-items:    center;
+  padding:        .4rem 0;
+  border-bottom:  1px solid var(--border-color);
+  font-size:      .85rem;
+}
+.stat-row:last-of-type { border-bottom: none; }
+.stat-label { color: var(--text-secondary); }
+.stat-value { font-weight: 600; color: var(--text-primary); text-align: right; }
+
+/* ── BMI Result ────────────────────────────────────────────────── */
+.bmi-result {
+  background:    var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  border:        1px solid var(--border-color);
+  padding:       .75rem;
+  font-size:     .85rem;
+}
+.bmi-number {
+  font-size:  2.2rem;
+  font-weight:800;
+  line-height:1;
+}
+.bmi-normal     { color: var(--success); }
+.bmi-underweight{ color: var(--warning); }
+.bmi-overweight { color: var(--warning); }
+.bmi-obese      { color: var(--danger); }
+
+/* ── Tip Carousel ──────────────────────────────────────────────── */
+.tip-carousel { min-height: 48px; }
+.tip-item {
+  display:    none;
+  font-size:  .85rem;
+  color:      var(--text-secondary);
+  padding:    .5rem .25rem;
+  line-height:1.5;
+}
+.tip-item.active { display: block; animation: fadeIn .4s ease; }
+
+/* ── Section Cards ─────────────────────────────────────────────── */
+.section-card {
+  background:    var(--bg-card);
+  border:        1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow:    var(--shadow-sm);
+  overflow:      hidden;
+  transition:    background var(--transition), border var(--transition);
+}
+.section-header {
+  padding:       .85rem 1.2rem;
+  font-weight:   700;
+  font-size:     1rem;
+  background:    var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  display:       flex;
+  align-items:   center;
+  color:         var(--text-primary);
+}
+.section-badge {
+  margin-left:   auto;
+  background:    var(--accent-light);
+  color:         var(--accent);
+  font-size:     .65rem;
+  font-weight:   700;
+  padding:       2px 8px;
+  border-radius: 10px;
+  letter-spacing:.3px;
+}
+.section-body { padding: 1.25rem; }
+
+/* ── Meal Plan Output ──────────────────────────────────────────── */
+.meal-plan-output,
+.analyzer-output {
+  background:    var(--bg-secondary);
+  border:        1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding:       1.25rem;
+  font-size:     .9rem;
+  line-height:   1.65;
+  white-space:   pre-wrap;
+}
+.meal-plan-output h2, .meal-plan-output h3,
+.analyzer-output h2, .analyzer-output h3 {
+  color: var(--accent);
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: .35rem;
+}
+.meal-plan-output table,
+.analyzer-output table {
+  width:           100%;
+  border-collapse: collapse;
+  font-size:       .82rem;
+  margin:          .75rem 0;
+}
+.meal-plan-output th, .analyzer-output th {
+  background:  var(--accent-light);
+  color:       var(--accent);
+  padding:     .45rem .65rem;
+  font-weight: 600;
+  text-align:  left;
+}
+.meal-plan-output td, .analyzer-output td {
+  padding:     .4rem .65rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* ── Profile Cards ─────────────────────────────────────────────── */
+.profile-card {
+  background:    var(--bg-secondary);
+  border:        2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding:       1rem;
+  transition:    all var(--transition);
+  cursor:        pointer;
+}
+.profile-card:hover,
+.profile-card.active {
+  border-color: var(--accent);
+  background:   var(--accent-light);
+}
+.profile-avatar {
+  font-size:   2rem;
+  text-align:  center;
+  margin-bottom: .4rem;
+}
+.profile-name {
+  font-weight: 700;
+  font-size:   .9rem;
+  text-align:  center;
+}
+.profile-detail {
+  font-size:  .75rem;
+  color:      var(--text-muted);
+  text-align: center;
+}
+
+/* ── Modal ─────────────────────────────────────────────────────── */
+.nutribot-modal {
+  background:    var(--bg-card);
+  border:        1px solid var(--border-color);
+  color:         var(--text-primary);
+}
+.nutribot-modal .modal-header { border-bottom: 1px solid var(--border-color); }
+.nutribot-modal .modal-footer { border-top:    1px solid var(--border-color); }
+
+/* ── Forms ─────────────────────────────────────────────────────── */
+.form-control, .form-select {
+  background:  var(--bg-secondary);
+  border:      1px solid var(--border-color);
+  color:       var(--text-primary);
+  transition:  all var(--transition);
+}
+.form-control:focus, .form-select:focus {
+  background:   var(--bg-card);
+  border-color: var(--accent);
+  box-shadow:   0 0 0 3px var(--accent-light);
+  color:        var(--text-primary);
+}
+.form-label, .form-label-sm { color: var(--text-secondary); font-size: .85rem; margin-bottom: .3rem; }
+
+/* ── Buttons ───────────────────────────────────────────────────── */
+.btn-primary {
+  background: var(--accent);
+  border:     none;
+  transition: all var(--transition);
+}
+.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+.btn-outline-primary {
+  border-color: var(--accent);
+  color:        var(--accent);
+}
+.btn-outline-primary:hover {
+  background:  var(--accent);
+  border-color:var(--accent);
+}
+.btn-xs {
+  background:    var(--bg-primary);
+  border:        1px solid var(--border-color);
+  color:         var(--text-secondary);
+  border-radius: 6px;
+  padding:       .25rem .45rem;
+  font-size:     .8rem;
+  transition:    all var(--transition);
+}
+.btn-xs:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ── Footer ─────────────────────────────────────────────────────── */
+.app-footer {
+  text-align:  center;
+  padding:     1rem;
+  font-size:   .78rem;
+  color:       var(--text-muted);
+  border-top:  1px solid var(--border-color);
+  margin-top:  2rem;
+}
+
+/* ── Animations ────────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in  { animation: fadeIn  .4s ease both; }
+.animate-slide-in { animation: slideIn .35s ease both; }
+.animate-scale-in { animation: scaleIn .3s ease both; }
+
+/* staggered children */
+.animate-fade-in:nth-child(1) { animation-delay: 0s; }
+.animate-fade-in:nth-child(2) { animation-delay: .07s; }
+.animate-fade-in:nth-child(3) { animation-delay: .14s; }
+.animate-fade-in:nth-child(4) { animation-delay: .21s; }
+
+/* ── Utility ────────────────────────────────────────────────────── */
+.page-container { max-width: 1300px; margin: 0 auto; padding-bottom: 1.5rem; }
+.main-grid      { margin-top: 1.25rem; }
+.text-accent    { color: var(--accent); }
+.dropdown-item:active { background: var(--accent-light); color: var(--accent); }
+.dropdown-menu {
+  background: var(--bg-card);
+  border:     1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+}
+.dropdown-item { color: var(--text-primary); }
+.dropdown-item:hover { background: var(--bg-secondary); }
+.dropdown-header { color: var(--text-muted); font-size: .75rem; }
+
+/* ── Responsive adjustments ─────────────────────────────────────── */
+@media (max-width: 767px) {
+  .chat-card      { height: 420px; }
+  .hero-title     { font-size: 1.3rem; }
+  .hero-banner    { padding: 1.25rem 1rem 1rem; }
+  .brand-name     { font-size: 1rem; }
+  .section-body   { padding: .85rem; }
+  .pill           { font-size: .72rem; padding: .25rem .6rem; }
+}
+
+@media (max-width: 400px) {
+  .chat-card { height: 380px; }
+  .message-bubble { max-width: 92%; font-size: .83rem; }
+}
+
+/* ── active-profile highlight in dropdown ──────────────────────── */
+.active-profile .dropdown-item {
+  color:         var(--accent);
+  font-weight:   600;
+}
