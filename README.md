@@ -117,6 +117,8 @@ An intelligent nutrition assistant developed using **IBM watsonx.ai** and **Gran
 - Family Profiles
 - Indian Diet Recommendations
 - Responsive Web Interface
+- **🌐 Live Demo:** https://ibm-edunet-soumit.vercel.app/
+
 
 ---
 
