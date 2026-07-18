@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "nutrition_agent/app.py",
+      "src": "healthverse_ai/app.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "nutrition_agent/app.py"
+      "dest": "healthverse_ai/app.py"
     }
   ]
 }
