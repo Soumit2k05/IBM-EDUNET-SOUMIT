@@ -1,5 +1,5 @@
 """
-NutriBot — AI-powered Nutrition Agent
+HealthVerse AI — AI-powered Nutrition Agent
 Flask backend with IBM watsonx.ai (Granite) integration
 """
 
@@ -119,7 +119,7 @@ def get_watsonx_model():
             instance.generate_text(prompt="Hi", params={GenParams.MAX_NEW_TOKENS: 3})
             # Success — tag the resolved model ID for prompt-format selection.
             instance._active_model_id = candidate
-            print(f"[NutriBot] Using model: {candidate}", flush=True)
+            print(f"[HealthVerse AI] Using model: {candidate}", flush=True)
             return instance
         except Exception as e:
             last_err = e
@@ -136,7 +136,7 @@ def get_watsonx_model():
                 "400",                              # bad-request from wrong endpoint
             ]
             if any(sig in err_str for sig in skip_signals):
-                print(f"[NutriBot] Skipping {candidate}: {str(e)[:120]}", flush=True)
+                print(f"[HealthVerse AI] Skipping {candidate}: {str(e)[:120]}", flush=True)
                 continue      # try next candidate
             raise             # unexpected error (auth, network) — propagate immediately
 

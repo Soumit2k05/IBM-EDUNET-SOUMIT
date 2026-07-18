@@ -9,16 +9,16 @@ function toggleTheme() {
   if (html.dataset.theme === "dark") {
     html.dataset.theme = "light";
     icon.className = "bi bi-moon-stars";
-    localStorage.setItem("nutribot_theme", "light");
+    localStorage.setItem("HealthVerse AI_theme", "light");
   } else {
     html.dataset.theme = "dark";
     icon.className = "bi bi-sun";
-    localStorage.setItem("nutribot_theme", "dark");
+    localStorage.setItem("HealthVerse AI_theme", "dark");
   }
 }
 
 function applyTheme() {
-  const saved = localStorage.getItem("nutribot_theme") || "light";
+  const saved = localStorage.getItem("HealthVerse AI_theme") || "light";
   document.documentElement.dataset.theme = saved;
   const icon = document.getElementById("themeIcon");
   if (icon) {

@@ -106,7 +106,7 @@ IBM-EDUNET-SOUMIT/
 
 # 🌟 Featured Project
 
-### 🥗 NutriBot – AI Powered Nutrition Agent
+### 🥗 HealthVerse AI – AI Powered Nutrition Agent
 
 An intelligent nutrition assistant developed using **IBM watsonx.ai** and **Granite Foundation Models** capable of:
 

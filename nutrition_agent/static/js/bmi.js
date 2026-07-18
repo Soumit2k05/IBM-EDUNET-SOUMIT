@@ -46,7 +46,7 @@ async function calculateBMI() {
           ${tdeeTable(data.tdee)}
         </div>
         <div style="font-size:.75rem;margin-top:.6rem;color:var(--text-muted)">
-          💬 Ask NutriBot for a personalised plan based on these numbers!
+          💬 Ask HealthVerse AI for a personalised plan based on these numbers!
         </div>
       `;
       result.classList.remove("d-none");

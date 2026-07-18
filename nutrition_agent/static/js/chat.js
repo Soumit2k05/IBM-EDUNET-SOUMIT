@@ -132,16 +132,16 @@ async function clearChat() {
 // ── Export chat as .txt ───────────────────────────
 function exportChat() {
   const bubbles = document.querySelectorAll(".message-bubble");
-  let text = "NutriBot Chat Export\n" + new Date().toLocaleString() + "\n\n";
+  let text = "HealthVerse AI Chat Export\n" + new Date().toLocaleString() + "\n\n";
   document.querySelectorAll(".message").forEach(msg => {
-    const role    = msg.classList.contains("user-message") ? "You" : "NutriBot";
+    const role    = msg.classList.contains("user-message") ? "You" : "HealthVerse AI";
     const content = msg.querySelector(".message-bubble")?.innerText?.replace(/\n{3,}/g, "\n\n") || "";
     text += `[${role}]\n${content}\n\n`;
   });
   const blob = new Blob([text], { type: "text/plain" });
   const a    = document.createElement("a");
   a.href     = URL.createObjectURL(blob);
-  a.download = "nutribot-chat.txt";
+  a.download = "HealthVerse AI-chat.txt";
   a.click();
 }
 
