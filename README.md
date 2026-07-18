@@ -8,7 +8,7 @@
 
 Welcome to my IBM SkillsBuild AICTE Internship repository. This repository contains all the work completed during the internship, including AI-powered applications, cloud-based projects, internship certificates, project documentation, reports, presentations, and final deliverables.
 
-Throughout this internship, I gained practical experience in developing intelligent applications using **IBM watsonx.ai**, **Granite Foundation Models**, **Python**, **Flask**, and modern web technologies while exploring the fundamentals of Artificial Intelligence, Prompt Engineering, Cloud Computing, and Full-Stack Development.
+Throughout this internship, I gained practical experience in developing intelligent applications using **IBM watsonx.ai**, **IBM Bob**, **IBM AutoAI**, **IBM watsonx Orchestrate**, **Granite Foundation Models**, **Python**, **Flask**, and modern web technologies while exploring Artificial Intelligence, Prompt Engineering, Cloud Computing, and Full-Stack Development.
 
 ---
 
@@ -18,8 +18,9 @@ This repository includes:
 
 - 🤖 AI & Cloud Internship Projects
 - 🧠 IBM watsonx.ai Applications
-- 💬 Granite LLM Based Solutions
-- 📊 Project Documentation
+- 🤖 IBM watsonx Orchestrate Agents
+- 📊 IBM AutoAI Projects
+- 💬 Granite Foundation Model Solutions
 - 📸 Project Screenshots & Outputs
 - 📑 Reports & Presentations
 - 🏆 IBM SkillsBuild Certificates
@@ -34,13 +35,16 @@ This repository includes:
 ## Artificial Intelligence
 - IBM watsonx.ai
 - IBM Granite Foundation Models
+- IBM AutoAI
+- IBM watsonx Orchestrate
+- IBM Bob
 - Prompt Engineering
 - Generative AI
 
 ## Cloud Technologies
 - IBM Cloud
-- IBM Code Engine
-- Cloud-based AI Services
+- IBM watsonx.ai Runtime
+- IBM Cloud Services
 
 ## Programming Languages
 - Python
@@ -69,6 +73,9 @@ During this internship, I worked on:
 - Generative AI
 - Large Language Models (LLMs)
 - IBM watsonx.ai
+- IBM AutoAI
+- IBM watsonx Orchestrate
+- IBM Bob
 - Prompt Engineering
 - Cloud Computing
 - Full Stack Web Development
@@ -82,7 +89,7 @@ During this internship, I worked on:
 
 # 📁 Repository Structure
 
-```
+```text
 IBM-EDUNET-SOUMIT/
 │
 ├── Certificates IBM/
@@ -95,8 +102,8 @@ IBM-EDUNET-SOUMIT/
 │   ├── Documentation
 │   └── Reports
 │
-├── nutrition_agent/
-│   └── AI Nutrition Assistant Project
+├── healthverse_ai/
+│   └── HealthVerse AI Web Application
 │
 ├── README.md
 └── vercel.json
@@ -106,19 +113,29 @@ IBM-EDUNET-SOUMIT/
 
 # 🌟 Featured Project
 
-### 🥗 HealthVerse AI – AI Powered Nutrition Agent
+## 🩺 HealthVerse AI – AI-Powered Healthcare & Wellness Platform
 
-An intelligent nutrition assistant developed using **IBM watsonx.ai** and **Granite Foundation Models** capable of:
+HealthVerse AI is an intelligent healthcare and wellness platform developed during the IBM SkillsBuild AICTE Internship. The application combines IBM AI technologies to deliver personalized health guidance and nutrition support.
 
-- AI Nutrition Chat
-- Meal Planning
-- BMI Calculator
-- Nutrition Analysis
-- Family Profiles
-- Indian Diet Recommendations
-- Responsive Web Interface
-- **🌐 Live Demo:** https://ibm-edunet-soumit.vercel.app/
+### Key Features
 
+- 💬 AI Healthcare Chat
+- 🥗 Personalized Meal Planning
+- 📊 BMI Calculator
+- 🍎 Nutrition Analysis
+- 👨‍👩‍👧 Family Health Profiles
+- 🇮🇳 Indian Diet Recommendations
+- 📱 Responsive Web Interface
+
+### IBM Technologies Used
+
+- IBM watsonx.ai
+- IBM Granite Foundation Models
+- IBM AutoAI
+- IBM watsonx Orchestrate
+- IBM Bob
+
+🌐 **Live Demo:** https://ibm-edunet-soumit.vercel.app/
 
 ---
 
@@ -127,9 +144,12 @@ An intelligent nutrition assistant developed using **IBM watsonx.ai** and **Gran
 This internship helped me gain practical knowledge in:
 
 - Building AI-powered applications
-- Integrating IBM Foundation Models
-- Deploying Cloud-based applications
-- Developing full-stack web applications
+- Developing AI agents with IBM watsonx Orchestrate
+- Training ML models using IBM AutoAI
+- Working with IBM Granite Foundation Models
+- Using IBM Bob for AI-assisted development
+- Deploying cloud-based AI applications
+- Developing responsive full-stack web applications
 - Applying Prompt Engineering techniques
 - Working with IBM AI & Cloud ecosystem
 
@@ -152,9 +172,12 @@ Special thanks to:
 - IBM SkillsBuild
 - Edunet Foundation
 - AICTE
-- IBM watsonx.ai Team
+- IBM watsonx.ai
+- IBM Bob
+- IBM watsonx Orchestrate
+- IBM AutoAI
 
-for providing this opportunity to learn and build innovative AI-powered solutions.
+for providing the opportunity to learn, innovate, and build AI-powered solutions.
 
 ---
 
@@ -162,8 +185,8 @@ for providing this opportunity to learn and build innovative AI-powered solution
 
 ## ⭐ IBM SkillsBuild AICTE Internship Repository
 
-### Artificial Intelligence • Cloud Computing • IBM watsonx.ai • Granite Models • Python • Flask
+### IBM watsonx.ai • IBM Bob • IBM AutoAI • IBM watsonx Orchestrate • Granite Foundation Models • Python • Flask
 
-**Learning, Building and Innovating with IBM AI & Cloud Technologies**
+**Learning • Building • Innovating with IBM AI & Cloud Technologies**
 
 </div>
